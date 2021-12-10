@@ -12,7 +12,14 @@ def download_video(url: str, quality='high', directory='.'):
     return "Video downloaded successfully"
 
 
+def download_audio(url: str, directory='.'):
+    yt = YouTube(url)
+    audio = yt.streams.get_audio_only(subtype='mp4')
+    audio.download(directory)
+    return "Audio downloaded successfully"
+
+
 if __name__ == '__main__':
     url = 'https://www.youtube.com/watch?v=9em32dDnTck'
-    download_video(url)
+    download_audio(url)
 
