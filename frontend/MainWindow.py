@@ -1,3 +1,4 @@
+from PyQt5 import QtGui
 from PyQt5.QtWidgets import (
     QMainWindow, QLineEdit, QLabel, QPushButton, QWidget,
     QGridLayout, QFileDialog
@@ -7,11 +8,12 @@ from backend.Downloader import download_video, download_audio
 
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, icon_path):
         QMainWindow.__init__(self)
         # Window settings
         self.setMinimumSize(400, 200)
         self.setWindowTitle("Downloader from YouTube")
+        self.setWindowIcon(QtGui.QIcon(icon_path))
         # Creating layout
         central_widget = QWidget(self)
         self.setCentralWidget(central_widget)
